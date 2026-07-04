@@ -1,6 +1,6 @@
 """
 FastAPI backend for ClaimAssist - AI-powered vehicle damage assessment
-Handles image uploads, Claude Vision API calls, and assessment logic
+Handles image uploads, Gemini Vision API calls, and assessment logic
 """
 import json
 import base64
@@ -72,7 +72,7 @@ MOCK_CLAIMS = {
 
 
 def encode_image_to_base64(image_path: str) -> str:
-    """Convert image file to base64 for Claude API"""
+    """Convert image file to base64 for Gemini API"""
     try:
         if not Path(image_path).exists():
             raise FileNotFoundError(f"Image file not found: {image_path}")
@@ -332,7 +332,7 @@ async def assess_damage(file: UploadFile = File(...), claim_id: str = "CLM-2024-
             f"Image uploaded for claim {claim_id}: {file.filename} ({len(content)} bytes)"
         )
 
-        # Get assessment from Claude Vision
+        # Get assessment from Gemini Vision
         assessment = assess_damage_with_vision(str(file_path))
 
         # Log the action

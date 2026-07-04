@@ -111,7 +111,7 @@ I'm ready to help with damage assessment. What would you like to do?
 
 async def process_damage_image(image_element, claim_id: str, claim_context: dict):
     """
-    Process uploaded image through Claude Vision for damage assessment
+    Process uploaded image through Gemini Vision for damage assessment
     Handles Chainlit file elements properly
     """
 
